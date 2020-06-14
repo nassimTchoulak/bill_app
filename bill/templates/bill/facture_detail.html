@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <style>
+          body{
+              text-align: center;
+              font-family: sans-serif;
+
+          }
+
+      </style>
+  </head>
+  <body>
+  <h2>Facture N° {{ facture.id }}</h2>
+  Client: {{ facture.client }}
+  <!-- on affiche les lignes de la facture -->
+  <table align="center">
+  {% for ligne in facture.lignes.all %}
+  	<tr align="center">
+  		<td>{{ ligne.produit.designation }}</td>
+  		<td>{{ ligne.produit.prix }}</td>
+  		<td>{{ ligne.qte }}</td>
+  	</tr>
+  {% endfor %}
+  </table>
+
+        <div> le total est{{ total }} </div>
+  </body>
+</html>
