@@ -6,7 +6,24 @@
 	{% bootstrap_css %}         {# Embed Bootstrap CSS #}
 	{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
   </head>
-  <body>
+  <body >
+
+    <div class="col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+
+                           <a class="navbar-brand col-2" href="/">Main stats</a>
+
+                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
+
+                         <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
+                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
+                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
+              <!-- Navbar content -->
+                     </nav>
+    </div>
+
+
+  <div class="col-8 offset-2">
   <h2>Facture N° {{ facture.id }}</h2>
   Client: {{ facture.client }}
   <br><br>
@@ -17,5 +34,11 @@
   <!-- on affiche les lignes de la facture -->
 	{% render_table table %}
   </div>
+
+  <div class="col-12">
+      <h2> le totale est : {{ somme }}</h2>
+  </div>
+
+      </div>
   </body>
 </html>

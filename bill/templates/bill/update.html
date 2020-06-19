@@ -5,11 +5,30 @@
     {% load bootstrap4 django_tables2 crispy_forms_tags %}
 	{% bootstrap_css %}         {# Embed Bootstrap CSS #}
 	{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
-    
+    <style>
+      .form-actions{
+          padding: 10px;
+
+      }
+  </style>
   </head>
   <body>
-  <h2>Modification de la Facture N° {{ object.id }}</h2>
-  <div class="col-lg-5">
+    <div class="col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+
+                           <a class="navbar-brand col-2" href="/">Main stats</a>
+
+                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
+
+                        <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
+                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
+                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
+              <!-- Navbar content -->
+                     </nav>
+    </div>
+
+  <h2>Modification de {{ titre }} N° {{ object.id }}</h2>
+  <div class="col-5 offset-3">
 	{% crispy form %}
   </div>
   </body>

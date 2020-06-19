@@ -1,0 +1,203 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+        {% load bootstrap4 django_tables2 crispy_forms_tags %}
+	{% bootstrap_css %}         {# Embed Bootstrap CSS #}
+	{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+    <title>Main stats</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+                <script>
+
+                    $( document ).ready(function() {
+    console.log( "ready!" );
+            let ls_line_date = {{ ls_line_date|safe }} ;
+
+            console.log(ls_line_date) ;
+            let ls_line_value = {{ ls_line_value|safe }} ;
+            let ls_pie = {{ ls_pie|safe }} ;
+
+
+            console.log(ls_line_value);
+            console.log(ls_pie)
+
+       Highcharts.chart('container', {
+              chart: {
+                type: 'line'
+              },
+              title: {
+                text: 'le chiffre d\'affaire quotidien'
+              },
+             xAxis: {
+                categories: ls_line_date
+              },
+              yAxis: {
+                title: {
+                  text: 'le chiffre d\'affaire'
+                }
+              },
+              plotOptions: {
+                line: {
+                  dataLabels: {
+                    enabled: true
+                  },
+                  enableMouseTracking: false
+                }
+              },
+              series: [{
+                name: 'chiffre DA',
+                data: ls_line_value
+              }]
+            });
+            // Build the chart
+                Highcharts.chart('container2', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'la répartition des ventes par catégorie'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: '%'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Categories',
+                        colorByPoint: true,
+                        data: ls_pie
+                    }]
+                });
+
+
+                });
+
+
+                </script>
+    <style>
+        .half{
+            width: 50vw;
+        }
+        .highcharts-figure, .highcharts-data-table table {
+          min-width: 360px;
+          max-width: 800px;
+          margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .highcharts-data-table caption {
+          padding: 1em 0;
+          font-size: 1.2em;
+          color: #555;
+        }
+        .highcharts-data-table th {
+            font-weight: 600;
+          padding: 0.5em;
+        }
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+          padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+          background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+          background: #f1f7ff;
+        }
+
+    </style>
+</head>
+<body>
+
+     <div class="col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+
+                           <a class="navbar-brand col-2" href="/">Main stats</a>
+
+                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
+
+                          <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
+                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
+                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
+              <!-- Navbar content -->
+                     </nav>
+    </div>
+
+
+    <div class="col-12 row">
+
+        <div class="col-12">
+            <div class="col-12">
+
+
+            </div>
+
+        </div>
+
+           <div class="col-6" style="padding-top: 40px">
+                        {% for table in tables %}
+                            <div class="col-12">
+                            {%     if forloop.counter0 == 0   %}
+                                       <h2>Les fournisseurs  classé par chiffre d'affaire</h2>
+                                {% endif %}
+
+
+                            {%     if forloop.counter0 == 1   %}
+                                       <h2>Les  client classé par chiffre d'affaire</h2>
+                                {% endif %}
+              {% render_table table %}
+                            </div>
+                   {% endfor %}
+           </div>
+
+            <div class="col-6">
+
+                <figure class="highcharts-figure col-12">
+                    <div class="col-12" id="container"></div></figure>
+
+                <div class="col-12">
+                    <figure class="highcharts-figure col-12">
+                    <div class="col-12" id="container2"></div></figure>
+                </div>
+
+            </div>
+
+
+
+    </div>
+
+</body>
+</html>

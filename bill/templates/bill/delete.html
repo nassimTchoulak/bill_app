@@ -8,12 +8,27 @@
     
   </head>
   <body>
+    <div class="col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+
+                           <a class="navbar-brand col-2" href="/">Main stats</a>
+
+                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
+
+                    <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
+                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
+                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
+              <!-- Navbar content -->
+                     </nav>
+    </div>
+
+
   <h2>Suppression d'une ligne facture</h2>
     <br>
-	<form method="post">{% csrf_token %}
+	<form method="post" class="offset-3 col-6" action="">{% csrf_token %}
     <p>Confirmez-vous la suppression de {{ object }} ?</p>
-    <button type="submit" class="btn btn-danger">Confirmer</button>
-    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary">Annuler</a>
+    <input type="submit" class="btn btn-danger"/>
+    <a href="/all_clients" onclick="window.history.back()" class="btn btn-secondary">Annuler</a>
 	</form>
   </body>
 </html>
