@@ -33,18 +33,11 @@ class AllClients(ListView):
     model = Client
 
     def get_context_data(self, **kwargs):
-        # Nous récupérons le contexte depuis la super-classe
         context = super(AllClients, self).get_context_data(**kwargs)
-        # = LigneFacture.objects.values('facture__client_id').annotate(
-        #    chiffre_affaire=Sum(
-        #        ExpressionWrapper(F('qte'), output_field=FloatField())
-        #        * F('produit__prix')))
-
         table = ClientTable(Client.objects.annotate(chiffre_affaire=Sum(
             ExpressionWrapper(F('facture_client__lignes_facture__qte'), output_field=FloatField())
             * F('facture_client__lignes_facture__produit__prix')))
         )
-
         RequestConfig(self.request, paginate={"per_page": 30}).configure(table)
         context['table'] = table
         context['btn_end_txt'] = ' Ajouter Un nouveau Client '
