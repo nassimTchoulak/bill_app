@@ -34,10 +34,11 @@ class Categorie(models.Model):
 class Produit(models.Model):
     designation = models.CharField(max_length=50)
     prix = models.FloatField(default=0)
-    categorie = models.ForeignKey(Categorie, on_delete=models.SET_NULL,null=True,default=None,
+    categorie = models.ForeignKey(Categorie, on_delete=models.SET_NULL, null=True, default=None,
                                   related_name='categorie_produit')
     fournisseur = models.ForeignKey(Fournisseur, on_delete=models.SET_NULL, null=True,
                                     related_name='fournisseur_produit')
+    produit_image = models.ImageField(upload_to='./', default=None, null=True)
 
     def __str__(self):
         return self.designation
@@ -66,4 +67,24 @@ class LigneFacture(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['produit', 'facture'], name="produit_facture")
+        ]
+
+
+class Commande(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    date = models.DateField(default=utils.timezone.now)
+    termine = models.BooleanField(default=False)
+    # false means commmande== panier !! sinon une commande terminé # validable par admin
+    facture = models.ForeignKey(Facture, on_delete=models.CASCADE, default=None, null=True,
+                                related_name="commande_facture")
+
+
+class LigneCommande(models.Model):
+    produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
+    qte = models.IntegerField(default=1)
+    commande = models.ForeignKey(Commande, on_delete=models.CASCADE, related_name='lignes_commande')
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['produit', 'commande'], name="produit-commande")
         ]

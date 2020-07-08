@@ -47,7 +47,7 @@ class ProduitList(ListView):
 class ProduitAdd(CreateView):
     model = Produit
     template_name = 'bill/create.html'
-    fields = ['designation', 'prix', 'categorie', 'fournisseur']
+    fields = ['designation', 'prix', 'categorie', 'fournisseur','produit_image']
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
@@ -62,7 +62,7 @@ class ProduitAdd(CreateView):
 class ProduitUpdate(UpdateView):
     model = Produit
     template_name = 'bill/update.html'
-    fields = ('designation', 'prix', 'categorie', 'fournisseur')
+    fields = ('designation', 'prix', 'categorie', 'fournisseur','produit_image')
     extra_context = {'titre': 'Produit'}
 
     def get_form(self, form_class=None):
