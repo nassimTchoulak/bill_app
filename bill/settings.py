@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # images directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, './bill/media')
 MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
@@ -128,8 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+STATIC_ROOT = os.path.join(BASE_DIR, './bill/root')
 STATICFILES_DIRS = [
     #    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
+    os.path.join(BASE_DIR, './bill/media'),
 ]

@@ -1,4 +1,7 @@
+from django.conf.urls.static import static
 from django.urls import path, re_path, include
+
+from bill import settings
 from bill.all_views.clientviews import *
 from bill.all_views.ligne_facture_views import *
 from bill.all_views.factureviews import *
@@ -44,4 +47,4 @@ urlpatterns = [
 
     path('', Main.as_view(), name='main_tab')
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
