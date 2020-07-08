@@ -1,7 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="" />
+    <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bill/media/banniere.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/autocomplete.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/changelists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/responsive_rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/vendor/select2/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/vendor/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/css/widgets.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/fonts/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/fonts/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/fonts/Roboto-Bold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/fonts/Roboto-Light-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/fonts/Roboto-Regular-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/calendar-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/gis/move_vertex_off.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/gis/move_vertex_on.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-addlink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-alert.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-calendar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-changelink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-clock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-deletelink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-no.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-unknown-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-unknown.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-viewlink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/icon-yes.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/inline-delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/selector-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/sorting-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/tooltag-add.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/img/tooltag-arrowright.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/SelectBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/SelectFilter2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/actions.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/admin/RelatedObjectLookups.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/autocomplete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/cancel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/change_form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/collapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/collapse.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/inlines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/inlines.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/jquery.init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/popup_response.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/prepopulate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/prepopulate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/prepopulate_init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/urlify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/jquery/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/bn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/dsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/hsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/hy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ka.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sr-Cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/tk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/select2.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/xregexp/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/admin/js/vendor/xregexp/xregexp.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/banniere.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/css/screen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/arrow-active-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/arrow-active-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/arrow-inactive-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/arrow-inactive-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/false.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/header-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/missing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/pagination-bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/django_tables2/themes/paleblue/img/true.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/templates/bill/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/templates/bill/navsidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,11 +196,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../boll_version_2/Bill" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bill" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amine\Desktop\bill\bill" />
+      <recent name="C:\Users\amine\Desktop\bill\bill\templates\bill" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amine\Desktop\bill\bill\templates\bill" />
     </key>
@@ -117,7 +269,10 @@
       <workItem from="1592059993951" duration="5732000" />
       <workItem from="1592147230029" duration="115417000" />
       <workItem from="1592815243377" duration="37000" />
-      <workItem from="1593461156259" duration="287000" />
+      <workItem from="1593461156259" duration="541000" />
+      <workItem from="1593907016211" duration="636000" />
+      <workItem from="1594144082813" duration="990000" />
+      <workItem from="1594201832918" duration="3010000" />
     </task>
     <servers />
   </component>
@@ -141,10 +296,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592417622390" />
-    <state x="739" y="273" key="FileChooserDialogImpl" timestamp="1592060402818">
+    <state x="739" y="273" key="FileChooserDialogImpl" timestamp="1594202117695">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592060402818" />
+    <state x="739" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594202117695" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1591001109968">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -169,10 +324,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1592496806910" />
-    <state x="656" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1592815267748">
+    <state x="656" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1594202081856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592815267748" />
+    <state x="656" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594202081856" />
     <state x="656" y="125" width="607" height="789" key="find.popup" timestamp="1591001603154">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
