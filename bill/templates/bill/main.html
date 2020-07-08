@@ -1,16 +1,13 @@
 
-{% load static %}
+{% extends "bill/base_admin.html" %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-        {% load bootstrap4 django_tables2 crispy_forms_tags %}
-	{% bootstrap_css %}         {# Embed Bootstrap CSS #}
-	{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
-    <title>Main stats</title>
+{% block meta %}     {% load bootstrap4 django_tables2 crispy_forms_tags %}  {% endblock %}
+
+
+
+{% block sripting %}
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -139,25 +136,10 @@
         }
 
     </style>
-</head>
-<body>
-
-     <div class="col-12">
-                    <nav class="navbar navbar-dark bg-dark">
-
-                           <a class="navbar-brand col-2" href="/">Main stats</a>
-
-                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
-
-                          <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
-                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
-                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
-              <!-- Navbar content -->
-                     </nav>
-    </div>
+{% endblock %}
 
 
-    <div class="col-12 row">
+{% block body %}
 
         <div class="col-12">
             <div class="col-12">
@@ -196,8 +178,4 @@
             </div>
 
 
-
-    </div>
-
-</body>
-</html>
+{% endblock %}

@@ -12,19 +12,7 @@
       </style>
   </head>
   <body>
-    <div class="col-12">
-                    <nav class="navbar navbar-dark bg-dark">
-
-                           <a class="navbar-brand col-2" href="/">Main stats</a>
-
-                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
-
-                    <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
-                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
-                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
-              <!-- Navbar content -->
-                     </nav>
-    </div>
+     {% include "bill/admin_top_menu.html" %}
 
 
   <h2>Facture N° {{ facture.id }}</h2>

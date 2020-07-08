@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/all_views/produitviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/produitviews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/base_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/facture_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/facture_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/facture_table_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/facture_table_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -130,7 +136,7 @@
       <workItem from="1593461156259" duration="541000" />
       <workItem from="1593907016211" duration="636000" />
       <workItem from="1594144082813" duration="990000" />
-      <workItem from="1594201832918" duration="6701000" />
+      <workItem from="1594201832918" duration="11158000" />
     </task>
     <servers />
   </component>
