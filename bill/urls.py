@@ -45,6 +45,10 @@ urlpatterns = [
     re_path(r'^add_categorie/$', CategorieADD.as_view(), name='add_produit'),
     re_path(r'^delete_categorie/(?P<pk>\w+)/$', CategorieDelete, name='delete_categorie'),
 
-    path('', Main.as_view(), name='main_tab')
+    path('', Main.as_view(), name='main_tab'),
+
+
+
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
