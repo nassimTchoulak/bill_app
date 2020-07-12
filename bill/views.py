@@ -13,10 +13,11 @@ from crispy_forms.layout import Submit, HTML, Button, Div
 from django.urls import reverse, reverse_lazy
 from django.db.models import Avg, Sum, ExpressionWrapper, F, FloatField
 from bootstrap_datepicker_plus import DatePickerInput
-
+from django.contrib.auth.decotators import login_required
 
 # Create your all_views here.
 
+@login_required
 def facture_detail_view(request, pk):
     facture = get_object_or_404(Facture, id=pk)
     total = facture.total()
@@ -238,7 +239,7 @@ class AddFactureClient(CreateView):
         self.success_url = reverse('client_detail', kwargs={'pk': self.kwargs.get('pk')})
         return form
 
-
+@login_required
 def ClientDelete(request, pk):
     obj = get_object_or_404(Client, pk=pk)
     context = {'object': obj.__str__()}
@@ -247,7 +248,7 @@ def ClientDelete(request, pk):
         return HttpResponseRedirect("/all_clients")
     return render(request, "bill/delete.html", context)
 
-
+@login_required
 def deleteFacture(request, pk):
     obj = get_object_or_404(Facture, pk=pk)
     context = {'object': obj.__str__()}
