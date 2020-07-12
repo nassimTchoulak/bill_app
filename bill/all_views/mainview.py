@@ -1,8 +1,10 @@
+from django.middleware.csrf import *
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django_tables2 import MultiTableMixin
-
-from ..models import Facture, LigneFacture, Fournisseur, Client, Categorie
+from django_filters.views import FilterView
+from django_tables2 import MultiTableMixin, SingleTableMixin
+import django_filters
+from ..models import Facture, LigneFacture, Fournisseur, Client, Categorie, Produit , Commande , LigneCommande
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -80,3 +82,74 @@ class Main(MultiTableMixin, TemplateView):
         'ls_pie': ls_pie.__str__()
 
     }
+
+
+class ProduitClientTable(tables.Table):
+    action = '{% if record.produit_image %}' + \
+             ' <img width="200px" class="img-fluid" src="{{ record.produit_image.url }}" />' + \
+             '{% endif %}'
+
+    action_add = '<a href="{% url "panier" pk=record.id %}" class="btn btn-info">Ajouter au panier</a>'
+    imagelink = tables.TemplateColumn(action)
+
+    ajouter = tables.TemplateColumn(action_add)
+
+    class Meta:
+        model = Categorie
+        template_name = "django_tables2/bootstrap4.html"
+        fields = ('designation', 'categorie', 'prix')
+
+
+class ProductFilter(django_filters.FilterSet):
+    class Meta:
+        model = Produit
+        fields = ['designation', 'categorie', 'prix']
+
+
+class FilteredPersonListView(SingleTableMixin, FilterView):
+    model = Produit
+    template_name = "bill/list.html"
+    filterset_class = ProductFilter
+
+    extra_context = {
+        'titre': 'Ajoutez un produit a votre panier '
+    }
+
+    table_class = ProduitClientTable
+
+
+class PanierTable(tables.Table):
+    # action = '<a href="{% url "facture_table_detail" pk=record.id %}" class="btn btn-info">augmenter quantité</a>'
+
+    action = '<form  action = "{% url "panier_manager" pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-info" type="submit"  value= "augmenter quantité" /> </form>'
+
+    action_add = '<form  action = "{% url "panier_manager" pk=record.id %}" method="DELETE">  {% csrf_token %} <input class="btn btn-danger" type="submit"  value= "Supprimer" /> </form>'
+    imagelink = tables.TemplateColumn(action)
+    ajouter = tables.TemplateColumn(action_add)
+
+    class Meta:
+        model = LigneFacture
+        template_name = "django_tables2/bootstrap4.html"
+        fields = ('produit__categorie', 'produit', 'qte')
+
+
+class Pannier(SingleTableMixin, FilterView):
+    model = LigneFacture
+    template_name = "bill/list.html"
+    queryset = LigneFacture.objects.filter(produit__categorie__designation__contains="food")
+
+    extra_context = {
+        'titre': ' Mon panier de produits ',
+        'filter': False
+    }
+
+    table_class = PanierTable
+
+
+def Panier_manager(request, pk):
+    get_token(request)
+    if request.method == "POST":
+
+        return HttpResponseRedirect("/panier/2")
+
+    return HttpResponseRedirect("/panier")

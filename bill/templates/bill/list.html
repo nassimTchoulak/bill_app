@@ -14,7 +14,16 @@
           padding: 10px;
 
       }
+        form.form{
+            text-align: center;
+        }
+        .form-group{
+            padding: 40px;
+        }
   </style>
+    <script>
+        const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    </script>
 
 
 </head>
@@ -42,6 +51,13 @@
   <div class="col-12" style="padding-top: 20px">
       <h1 align="center">{{ titre }}</h1>
   </div>
+
+      {% if filter %}
+    <form action="" method="get" class="form form-inline">
+        {% bootstrap_form filter.form layout='inline' %}
+        {% bootstrap_button 'filter' %}
+    </form>
+{% endif %}
 
   <div class="col-lg-12">
 <!-- on affiche les lignes de la facture -->

@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Client, Produit, Facture, LigneFacture , Fournisseur
-
+from .models import Client, Produit, Facture, LigneFacture, Fournisseur
 
 # Register your models here.
 admin.site.register(Client)

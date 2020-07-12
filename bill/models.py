@@ -30,6 +30,9 @@ class Fournisseur(models.Model):
 class Categorie(models.Model):
     designation = models.CharField(max_length=50, primary_key=True)
 
+    def __str__(self):
+        return self.designation
+
 
 class Produit(models.Model):
     designation = models.CharField(max_length=50)
