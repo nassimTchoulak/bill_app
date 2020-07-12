@@ -1,11 +1,23 @@
+{% load bootstrap4 django_tables2 %}
+    {% bootstrap_css %}         {# Embed Bootstrap CSS #}
+    {% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+
 <ul class="sidebar-nav">
 
-    ...
 
    {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li>
-     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+   <div class="row">
+    <div class="col-sm-9">
+     
+    </div>
+    <div class="col-sm-1">
+       {{ user.get_username }}
+    </div>
+    <div class="col-sm-1">
+      <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    </div>
+  </div>
    {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+     <li><a  class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
    {% endif %} 
   </ul>

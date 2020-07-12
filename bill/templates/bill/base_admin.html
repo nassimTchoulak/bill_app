@@ -23,28 +23,44 @@
   {% block sripting %}{% endblock %}
   <body>
 
-
-     <div class="col-12">
-                    <nav class="navbar navbar-dark bg-dark">
-
-                           <a class="navbar-brand col-2" href="/">Main stats</a>
-
-                        <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
-
-                          <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
-                         <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
-                        <a class="navbar-brand col-2" href="/all_categories">catégories</a>
-              <!-- Navbar content -->
-                     </nav>
+    {% if user.is_authenticated %}
+    <div class="row">
+      <div class="col-sm-9">
+       
+      </div>
+      <div class="col-sm-1">
+         {{ user.get_username }}
+      </div>
+      <div class="col-sm-1">
+        <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+      </div>
     </div>
-     <div class="col-12 row">
+ </ul>
+ <div class="col-12">
+                <nav class="navbar navbar-dark bg-dark">
 
-  {% block body %}
+                       <a class="navbar-brand col-2" href="/">Main stats</a>
 
-  {% endblock %}
+                    <a class="navbar-brand col-3" href="/all_clients">Tout les Clients</a>
 
-     </div>
+                      <a class="navbar-brand col-2" href="/all_fournisseurs">Tout les Fournisseurs</a>
+                     <a class="navbar-brand col-2" href="/all_produits">Tout les produits</a>
+                    <a class="navbar-brand col-2" href="/all_categories">catégories</a>
+          <!-- Navbar content -->
+                 </nav>
+</div>
+ <div class="col-12 row">
 
+{% block body %}
+
+{% endblock %}
+
+ </div>
+
+  {% else %}
+    <li><a  class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+  {% endif %} 
+  
 
   </body>
 </html>

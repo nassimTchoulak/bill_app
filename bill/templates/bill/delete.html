@@ -8,15 +8,34 @@
     
   </head>
   <body>
-     {% include "bill/admin_top_menu.html" %}
+
+    {% if user.is_authenticated %}
+    <div class="row">
+      <div class="col-sm-9">
+       
+      </div>
+      <div class="col-sm-1">
+         {{ user.get_username }}
+      </div>
+      <div class="col-sm-1">
+        <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+      </div>
+    </div>
+    
+    {% include "bill/admin_top_menu.html" %}
 
 
-  <h2>Suppression d'une ligne facture</h2>
-    <br>
-	<form method="post" class="offset-3 col-6" action="">{% csrf_token %}
-    <p>Confirmez-vous la suppression de {{ object }} ?</p>
-    <input type="submit" class="btn btn-danger"/>
-    <a href="/all_clients" onclick="window.history.back()" class="btn btn-secondary">Annuler</a>
-	</form>
+    <h2>Suppression d'une ligne facture</h2>
+      <br>
+    <form method="post" class="offset-3 col-6" action="">{% csrf_token %}
+      <p>Confirmez-vous la suppression de {{ object }} ?</p>
+      <input type="submit" class="btn btn-danger"/>
+      <a href="/all_clients" onclick="window.history.back()" class="btn btn-secondary">Annuler</a>
+    </form>
+  {% else %}
+    <li><a  class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+
+  {% endif %} 
+
   </body>
 </html>

@@ -8,25 +8,45 @@
   </head>
   <body >
 
-     {% include "bill/admin_top_menu.html" %}
-
-
-  <div class="col-8 offset-2">
-  <h2>Facture N° {{ facture.id }}</h2>
-  Client: {{ facture.client }}
-  <br><br>
-  <!-- on affiche un bouton pour ajouter une ligne facture -->
-  <a href="{% url 'facture_table_create' facture_pk=facture.id %}" class="btn btn-primary">Ajouter Ligne</a>
-  <br><br>
-  <div class="col-lg-6">
-  <!-- on affiche les lignes de la facture -->
-	{% render_table table %}
-  </div>
-
-  <div class="col-12">
-      <h2> le totale est : {{ somme }}</h2>
-  </div>
-
+    {% if user.is_authenticated %}
+    <div class="row">
+      <div class="col-sm-9">
+       
       </div>
+      <div class="col-sm-1">
+         {{ user.get_username }}
+      </div>
+      <div class="col-sm-1">
+        <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+      </div>
+    </div>
+    {% include "bill/admin_top_menu.html" %}
+
+
+    <div class="col-8 offset-2">
+    <h2>Facture N° {{ facture.id }}</h2>
+    Client: {{ facture.client }}
+    <br><br>
+    <!-- on affiche un bouton pour ajouter une ligne facture -->
+    <a href="{% url 'facture_table_create' facture_pk=facture.id %}" class="btn btn-primary">Ajouter Ligne</a>
+    <br><br>
+    <div class="col-lg-6">
+    <!-- on affiche les lignes de la facture -->
+    {% render_table table %}
+    </div>
+  
+    <div class="col-12">
+        <h2> le totale est : {{ somme }}</h2>
+    </div>
+  
+        </div> 
+  {% endif %} 
+    
+    
+
+    
+  {% else %}
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>  
+   
   </body>
 </html>
