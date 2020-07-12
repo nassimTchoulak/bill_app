@@ -14,6 +14,7 @@ from django.urls import reverse, reverse_lazy
 from django.db.models import Avg, Sum, ExpressionWrapper, F, FloatField
 from bootstrap_datepicker_plus import DatePickerInput
 from django.contrib.auth.decotators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your all_views here.
 
@@ -26,7 +27,7 @@ def facture_detail_view(request, pk):
     return render(request, 'bill/facture_detail.html', context)
 
 
-class FactureUpdate(UpdateView):
+class FactureUpdate(LoginRequiredMixin, UpdateView):
     model = Facture
     fields = ['client', 'date']
     template_name = 'bill/update.html'
@@ -46,7 +47,7 @@ class FactureUpdate(UpdateView):
         return form
 
 
-class LigneFactureTable(tables.Table):
+class LigneFactureTable(LoginRequiredMixin, tables.Table):
     action = '<a href="{% url "lignefacture_update" pk=record.id facture_pk=record.facture.id %}" class="btn btn-warning">Modifier</a>\
             <a href="{% url "lignefacture_delete" pk=record.id facture_pk=record.facture.id %}" class="btn btn-danger">Supprimer</a>'
     edit = tables.TemplateColumn(action)
@@ -57,7 +58,7 @@ class LigneFactureTable(tables.Table):
         fields = ('produit__designation', 'produit__id', 'produit__prix', 'qte')
 
 
-class FactureDetailView(DetailView):
+class FactureDetailView(LoginRequiredMixin, DetailView):
     template_name = 'bill/facture_table_detail.html'
     model = Facture
 
@@ -70,7 +71,7 @@ class FactureDetailView(DetailView):
         return context
 
 
-class LigneFactureCreateView(CreateView):
+class LigneFactureCreateView(LoginRequiredMixin, CreateView):
     model = LigneFacture
     template_name = 'bill/create.html'
     fields = ['facture', 'produit', 'qte']

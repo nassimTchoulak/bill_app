@@ -38,6 +38,11 @@
     </table>
     <input type="submit" value="login" class="btn btn-primary" />
     <input type="hidden" name="next" value="{{ next }}" />
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+      Login with Google
+      </a>
   </form>
   
   {# Assumes you setup the password_reset view in your URLconf #}

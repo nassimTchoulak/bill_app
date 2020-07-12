@@ -21,7 +21,7 @@ urlpatterns = [
             name='lignefacture_delete'),
     re_path(r'^lignefacture_update/(?P<pk>\d+)/(?P<facture_pk>\d+)/$', LigneFactureUpdateView.as_view(),
             name='lignefacture_update'),
-
+        
     re_path(r'^all_clients/$', AllClients.as_view(), name='all_clients'),
     re_path(r'^client_detail/(?P<pk>\d+)/$', AllFacturesClient.as_view(), name='client_detail'),
     re_path(r'^add_client/$', AddClient.as_view(), name='new_client'),
@@ -50,5 +50,6 @@ urlpatterns = [
 
 
     path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('social_django.urls', namespace='social')),   
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
