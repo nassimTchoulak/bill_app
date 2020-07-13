@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bill/templates/bill/list_client.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/media/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bill/root/back.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/all_views/factureviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/factureviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/all_views/ligne_facture_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/ligne_facture_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/all_views/mainview.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/mainview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/base_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/base_admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/templates/bill/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/templates/bill/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/navbar_client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -58,18 +61,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bill/media" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\amine\Desktop\bill\bill\templates\bill" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amine\Desktop\yacine_version\bill_app\bill\media" />
+      <recent name="C:\Users\amine\Desktop\yacine_version\bill_app\bill\root" />
       <recent name="C:\Users\amine\Desktop\bill\bill\media" />
       <recent name="C:\Users\amine\Desktop\bill\bill\templates\bill" />
       <recent name="C:\Users\amine\Desktop\bill\bill" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amine\Desktop\bill\bill\templates\bill" />
     </key>
   </component>
   <component name="RunManager">

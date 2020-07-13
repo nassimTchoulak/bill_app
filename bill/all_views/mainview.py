@@ -98,7 +98,7 @@ class ProduitClientTable(tables.Table):
     class Meta:
         model = Produit
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('id','designation', 'categorie', 'prix')
+        fields = ('id', 'designation', 'categorie', 'prix')
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -141,12 +141,12 @@ class Pannier(SingleTableMixin, FilterView):
     # queryset = LigneCommande.objects.filter(commande__user=request.user)
 
     def get_table_data(self):
-        return LigneCommande.objects.filter(commande__user=self.request.user,commande__termine=False)
+        return LigneCommande.objects.filter(commande__user=self.request.user, commande__termine=False)
 
     extra_context = {
         'titre': ' Mon panier de produits ',
         'filter': False,
-        'the_end':True
+        'the_end': True
     }
 
     table_class = PanierTable
@@ -177,8 +177,9 @@ def Panier_manager(request, action, pk):
         client = Client.objects.filter(nom=request.user.last_name, prenom=request.user.first_name)
         if len(client) > 0:
             cli = client.first()
-        else :
-            cli = Client(nom=request.user.last_name, prenom=request.user.first_name,sexe='M',adresse=request.user.email)
+        else:
+            cli = Client(nom=request.user.last_name, prenom=request.user.first_name, sexe='M',
+                         adresse=request.user.email)
             cli.save()
         panier = Commande.objects.filter(user=request.user, termine=False).first()
         panier.termine = True
@@ -186,26 +187,21 @@ def Panier_manager(request, action, pk):
         panier.save()
         return HttpResponseRedirect("/my_commandes")
 
-
-
     return HttpResponseRedirect("/panier")
 
 
 
 
-class MyCommandes(MultiTableMixin, TemplateView):
-    pass
-
 
 class CommandeClientTable(tables.Table):
-    action = '{% if record.facture %} <a href="{% url "update_produit" pk=record.id %}" class="btn btn-info">Modifier</a> {% endif %}'
+    action = '{% if record.facture %}  <a href="{% url "facture_table_detail" pk=record.facture_id %}" class="btn btn-info">detail facture</a>  {% endif %}'
 
     detail_facture = tables.TemplateColumn(action)
 
     class Meta:
         model = Commande
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('client','date','termine','facture','montant')
+        fields = ('client', 'date', 'termine', 'facture', 'montant')
 
 
 class MyCommandes(ListView):

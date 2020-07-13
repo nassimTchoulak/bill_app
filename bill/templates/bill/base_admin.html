@@ -24,13 +24,15 @@
   <body>
 
     {% if user.is_authenticated %}
-    <div class="row">
-      <div class="col-sm-9">
-       
+    <div class="row" style="background-color: rgba(91,128,178,0.38)">
+      <div class="col-sm-5 offset-3">
+           <a class="btn btn-primary"  href="/liste_produits">Changer de mode d'utilisation </a>
+
+
       </div>
-      <div class="col-sm-1">
-         {{ user.get_username }}
-      </div>
+      <h4 class="col-sm-2">
+        Utilisateur : <span style="font-weight: bold"> {{ user.get_username }} </span>
+      </h4>
       <div class="col-sm-1">
         <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
       </div>
@@ -53,6 +55,11 @@
       <a class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Get Started</a> 
       {% endblock %}
     </div>
+  <div class="col-12">
+      <h1 class="col-12" align="center" color="#002148"> Connectez Vous à notre application de vente </h1>
+      <img src="/media/back.jpg" width="100%" height="auto">
+  </div>
+
   </div>
   {% endif %} 
   

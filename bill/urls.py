@@ -53,6 +53,10 @@ urlpatterns = [
 
 
 
+
+                    re_path(r'^all_commandes/$',CommandeAdminView.as_view(),name="validate_commande"),
+                    re_path(r'^commande_op/(?P<pk>\w+)/$',Commande_op,name="commande_op"),
+
                   path('', Main.as_view(), name='main_tab'),
 
                   path('accounts/', include('django.contrib.auth.urls')),

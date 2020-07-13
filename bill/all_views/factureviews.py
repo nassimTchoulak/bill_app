@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 from .ligne_facture_views import LigneFactureTable
-from ..models import Facture, LigneFacture, Client
+from ..models import Facture, LigneFacture, Client, Commande, LigneCommande
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -38,7 +38,6 @@ class FactureUpdate(UpdateView):
         form.helper.add_input(Button('cancel', 'Annuler', css_class='btn-secondary', onclick="window.history.back()"))
         self.success_url = reverse('client_detail', kwargs={'pk': f.client.id})
         return form
-
 
 
 class FactureTable(tables.Table):
@@ -82,7 +81,6 @@ class AddFactureClient(CreateView):
         form = super().get_form(form_class)
         form.helper = FormHelper()
 
-
         form.fields['client'] = forms.ModelChoiceField(queryset=Client.objects.filter(id=self.kwargs.get('pk')),
                                                        initial=0)
 
@@ -101,5 +99,51 @@ def deleteFacture(request, pk):
     if request.method == "POST":
         user_id = obj.client.id
         obj.delete()
-        return HttpResponseRedirect("/client_detail/"+user_id.__str__())
+        return HttpResponseRedirect("/client_detail/" + user_id.__str__())
     return render(request, "bill/delete.html", context)
+
+
+class CommandeAdmin(tables.Table):
+    action = '{% if record.facture %} <a href="{% url "facture_table_detail" pk=record.facture_id %}" class="btn btn-info">detail facture</a> {% else %}'+\
+        '<form  action = "{% url "commande_op"  pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-warning" type="submit"  value= "Valider Commande" /> </form> {% endif %}'
+
+    edit = tables.TemplateColumn(action)
+
+    class Meta:
+        model = Commande
+        template_name = "django_tables2/bootstrap4.html"
+        fields = ('id','client', 'date', 'termine', 'facture','facture_id', 'montant')
+
+
+class CommandeAdminView(ListView):
+    template_name = "bill/list.html"
+    model = Commande
+
+    def get_context_data(self, **kwargs):
+        context = super(CommandeAdminView, self).get_context_data(**kwargs)
+
+        table = CommandeAdmin(Commande.objects.annotate(montant=Sum(
+            ExpressionWrapper(F('lignes_commande__qte'), output_field=FloatField())
+            * F('lignes_commande__produit__prix'))).filter(termine=True))
+
+        RequestConfig(self.request, paginate={"per_page": 30}).configure(table)
+        context['table'] = table
+
+        context['titre'] = "Tout les Commandes des clients à valider "
+        return context
+
+
+def Commande_op(request, pk):
+
+    commande = Commande.objects.get(pk=pk)
+
+    f = Facture(client=commande.client,date=commande.date)
+    f.save()
+
+    for i in LigneCommande.objects.filter(commande_id=pk):
+        y = LigneFacture(facture=f,qte=i.qte,produit=i.produit)
+        y.save()
+    commande.facture = f
+    commande.save()
+
+    return HttpResponseRedirect("/")

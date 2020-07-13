@@ -26,7 +26,7 @@ class FactureDetailView(DetailView):
         context = super(FactureDetailView, self).get_context_data(**kwargs)
 
         table = LigneFactureTable(LigneFacture.objects.filter(facture=self.kwargs.get('pk')))
-        RequestConfig(self.request, paginate={"per_page": 2}).configure(table)
+        RequestConfig(self.request, paginate={"per_page": 10}).configure(table)
         context['table'] = table
         context['somme'] = Facture.objects.get(id=self.kwargs.get('pk')).total()
         return context
