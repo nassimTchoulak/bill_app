@@ -33,20 +33,8 @@
   <!-- <div class="container">
 
   </div> -->
-  <div class="row">
-    <div class="col-sm-9">
-     
-    </div>
-    <div class="col-sm-1">
-       {{ user.get_username }}
-    </div>
-    <div class="col-sm-1">
-      <a class="btn btn-primary"  href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-    </div>
-  </div>
- 
 
-  {% include "bill/admin_top_menu.html" %}
+  {% include "bill/navbar_client.html" %}
 
   <div class="col-12" style="padding-top: 20px">
       <h1 align="center">{{ titre }}</h1>
@@ -71,21 +59,22 @@
       {% endif %}
 
         {%  if the_end %}
-            {{ the_end | safe}}
+            {% csrf_token %}
+           <form  action = "{% url "panier_manager" action="4" pk="0" %}" method="POST"> {% csrf_token %}<input class="btn btn-info" type="submit"  value= "Effectuer Commande & valider le panier " /> </form>
             {%  endif %}
 
   </div>
 {% else %}
-<div class="jumbotron vertical-center"> 
+<div class="jumbotron vertical-center">
   <div class="container" style="margin-top: auto; margin-bottom: auto;">
 
     {% block content %}
-    <a class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Get Started</a> 
+    <a class="btn btn-primary"  href="{% url 'login'%}?next={{request.path}}">Get Started</a>
     {% endblock %}
   </div>
 </div>
-{% endif %} 
-  
+{% endif %}
+
 
 </body>
 </html>

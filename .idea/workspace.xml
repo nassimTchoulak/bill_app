@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bill/templates/bill/list_client.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/all_views/mainview.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/mainview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/templates/bill/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/templates/bill/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/navbar_client.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements." beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +156,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="473" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592096353329" />
+    <state x="698" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594608952667">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="698" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594608952667" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592417622390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

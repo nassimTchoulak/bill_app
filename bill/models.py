@@ -1,6 +1,7 @@
 from django.db import models
 from django import utils
 import datetime
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -74,7 +75,8 @@ class LigneFacture(models.Model):
 
 
 class Commande(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE,related_name='commande_client',null=True , default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='commande_user',null=True , default=None)
     date = models.DateField(default=utils.timezone.now)
     termine = models.BooleanField(default=False)
     # false means commmande== panier !! sinon une commande terminé # validable par admin

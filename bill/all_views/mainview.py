@@ -1,10 +1,11 @@
+from django.contrib.auth.models import User
 from django.middleware.csrf import *
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, SingleTableMixin
 import django_filters
-from ..models import Facture, LigneFacture, Fournisseur, Client, Categorie, Produit , Commande , LigneCommande
+from ..models import Facture, LigneFacture, Fournisseur, Client, Categorie, Produit, Commande, LigneCommande
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -89,15 +90,15 @@ class ProduitClientTable(tables.Table):
              ' <img width="200px" class="img-fluid" src="{{ record.produit_image.url }}" />' + \
              '{% endif %}'
 
-    action_add = '<a href="{% url "panier" pk=record.id %}" class="btn btn-info">Ajouter au panier</a>'
+    action_add = '<form  action = "{% url "panier_manager" action="1" pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-info" type="submit"  value= "Ajouter produit au panier" /> </form>'
     imagelink = tables.TemplateColumn(action)
 
     ajouter = tables.TemplateColumn(action_add)
 
     class Meta:
-        model = Categorie
+        model = Produit
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('designation', 'categorie', 'prix')
+        fields = ('id','designation', 'categorie', 'prix')
 
 
 class ProductFilter(django_filters.FilterSet):
@@ -108,7 +109,7 @@ class ProductFilter(django_filters.FilterSet):
 
 class FilteredPersonListView(SingleTableMixin, FilterView):
     model = Produit
-    template_name = "bill/list.html"
+    template_name = "bill/list_client.html"
     filterset_class = ProductFilter
 
     extra_context = {
@@ -121,35 +122,106 @@ class FilteredPersonListView(SingleTableMixin, FilterView):
 class PanierTable(tables.Table):
     # action = '<a href="{% url "facture_table_detail" pk=record.id %}" class="btn btn-info">augmenter quantité</a>'
 
-    action = '<form  action = "{% url "panier_manager" pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-info" type="submit"  value= "augmenter quantité" /> </form>'
+    action = '<form  action = "{% url "panier_manager" action="2" pk=record.produit_id %}" method="POST">  {% csrf_token %} <input class="btn btn-info" type="submit"  value= "augmenter quantité" /> </form>'
+    action_add = '<form  action = "{% url "panier_manager" action="3" pk=record.produit_id %}" method="POST">  {% csrf_token %} <input class="btn btn-danger" type="submit"  value= "Supprimer" /> </form>'
 
-    action_add = '<form  action = "{% url "panier_manager" pk=record.id %}" method="DELETE">  {% csrf_token %} <input class="btn btn-danger" type="submit"  value= "Supprimer" /> </form>'
-    imagelink = tables.TemplateColumn(action)
-    ajouter = tables.TemplateColumn(action_add)
+    Ajouter_quantité = tables.TemplateColumn(action)
+    Supprimer_ligne = tables.TemplateColumn(action_add)
 
     class Meta:
-        model = LigneFacture
+        model = LigneCommande
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('produit__categorie', 'produit', 'qte')
+        fields = ('produit_id', 'produit__categorie', 'produit', 'qte')
 
 
 class Pannier(SingleTableMixin, FilterView):
-    model = LigneFacture
-    template_name = "bill/list.html"
-    queryset = LigneFacture.objects.filter(produit__categorie__designation__contains="food")
+    model = LigneCommande
+    template_name = "bill/list_client.html"
+
+    # queryset = LigneCommande.objects.filter(commande__user=request.user)
+
+    def get_table_data(self):
+        return LigneCommande.objects.filter(commande__user=self.request.user,commande__termine=False)
 
     extra_context = {
         'titre': ' Mon panier de produits ',
-        'filter': False
+        'filter': False,
+        'the_end':True
     }
 
     table_class = PanierTable
 
 
-def Panier_manager(request, pk):
+def Panier_manager(request, action, pk):
     get_token(request)
-    if request.method == "POST":
+    if action == "1":
+        print("__________")
+        panier = Commande.objects.filter(user=request.user, termine=False)
+        if len(panier) > 0:
+            LigneCommande.objects.create(commande=panier.first(), qte=1, produit_id=pk).save()
+        else:
+            panier = Commande.objects.create(user=request.user, termine=False)
+            panier.save()
+            LigneCommande.objects.create(commande=panier, qte=1, produit_id=pk).save()
 
-        return HttpResponseRedirect("/panier/2")
+    elif action == "2":
+
+        t = LigneCommande.objects.filter(commande__user_id=request.user.id, produit_id=pk).first()
+        t.qte += 1
+        t.save()
+    elif action == "3":
+        t = LigneCommande.objects.filter(commande__user_id=request.user.id, produit_id=pk).first()
+        t.delete()
+
+    else:
+        client = Client.objects.filter(nom=request.user.last_name, prenom=request.user.first_name)
+        if len(client) > 0:
+            cli = client.first()
+        else :
+            cli = Client(nom=request.user.last_name, prenom=request.user.first_name,sexe='M',adresse=request.user.email)
+            cli.save()
+        panier = Commande.objects.filter(user=request.user, termine=False).first()
+        panier.termine = True
+        panier.client = cli
+        panier.save()
+        return HttpResponseRedirect("/my_commandes")
+
+
 
     return HttpResponseRedirect("/panier")
+
+
+
+
+class MyCommandes(MultiTableMixin, TemplateView):
+    pass
+
+
+class CommandeClientTable(tables.Table):
+    action = '{% if record.facture %} <a href="{% url "update_produit" pk=record.id %}" class="btn btn-info">Modifier</a> {% endif %}'
+
+    detail_facture = tables.TemplateColumn(action)
+
+    class Meta:
+        model = Commande
+        template_name = "django_tables2/bootstrap4.html"
+        fields = ('client','date','termine','facture','montant')
+
+
+class MyCommandes(ListView):
+    template_name = "bill/list_client.html"
+    model = Commande
+
+    def get_context_data(self, **kwargs):
+        # Nous récupérons le contexte depuis la super-classe
+        context = super(MyCommandes, self).get_context_data(**kwargs)
+
+        table = CommandeClientTable(Commande.objects.annotate(montant=Sum(
+            ExpressionWrapper(F('lignes_commande__qte'), output_field=FloatField())
+            * F('lignes_commande__produit__prix'))))
+
+        RequestConfig(self.request, paginate={"per_page": 10}).configure(table)
+        context['table'] = table
+
+        context['titre'] = "Tout Mes Commande validé & en attente  "
+        return context

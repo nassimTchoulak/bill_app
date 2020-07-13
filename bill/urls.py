@@ -48,7 +48,11 @@ urlpatterns = [
 
                   re_path(r'^liste_produits/$', FilteredPersonListView.as_view(), name='test_filter'),
                   re_path(r'^panier/$', Pannier.as_view(), name="panier"),
-                  re_path(r'^panier_action/(?P<pk>\w+)/$', Panier_manager, name="panier_manager"),
+                  re_path(r'^panier_action/(?P<action>\w+)/(?P<pk>\w+)/$', Panier_manager, name="panier_manager"),
+                  re_path(r'^my_commandes/$', MyCommandes.as_view() ,name="my_commandes"),
+
+
+
                   path('', Main.as_view(), name='main_tab'),
 
                   path('accounts/', include('django.contrib.auth.urls')),

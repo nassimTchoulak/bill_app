@@ -1,0 +1,16 @@
+<div class="col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+
+                           <a class="navbar-brand col-3" href="/liste_produits">Les produits</a>
+
+                        <a class="navbar-brand col-2" href="/my_commandes">Mes Commandes</a>
+
+                          <a class="navbar-brand col-2" href="/panier">Panier</a>
+
+                         <span class="navbar-brand col-2">   {{ user.get_username }} <a class="btn btn-primary col-8"  href="{% url 'logout'%}?next={{request.path}}">Logout</a> </span>
+
+                         <a class="navbar-brand col-1" href="/">Admin</a>
+
+              <!-- Navbar content -->
+                     </nav>
+    </div>
