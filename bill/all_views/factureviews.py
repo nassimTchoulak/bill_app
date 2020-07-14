@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
+from bill.settings import *
 from .ligne_facture_views import LigneFactureTable
 from ..models import Facture, LigneFacture, Client, Commande, LigneCommande
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
@@ -15,6 +15,7 @@ from crispy_forms.layout import Submit, HTML, Button, Div
 from django.urls import reverse, reverse_lazy
 from django.db.models import Avg, Sum, ExpressionWrapper, F, FloatField
 from bootstrap_datepicker_plus import DatePickerInput
+from django.core.mail import EmailMessage
 
 
 class FactureUpdate(UpdateView):
@@ -104,15 +105,15 @@ def deleteFacture(request, pk):
 
 
 class CommandeAdmin(tables.Table):
-    action = '{% if record.facture %} <a href="{% url "facture_table_detail" pk=record.facture_id %}" class="btn btn-info">detail facture</a> {% else %}'+\
-        '<form  action = "{% url "commande_op"  pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-warning" type="submit"  value= "Valider Commande" /> </form> {% endif %}'
+    action = '{% if record.facture %} <a href="{% url "facture_table_detail" pk=record.facture_id %}" class="btn btn-info">detail facture</a> {% else %}' + \
+             '<form  action = "{% url "commande_op"  pk=record.id %}" method="POST">  {% csrf_token %} <input class="btn btn-warning" type="submit"  value= "Valider Commande" /> </form> {% endif %}'
 
     edit = tables.TemplateColumn(action)
 
     class Meta:
         model = Commande
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('id','client', 'date', 'termine', 'facture','facture_id', 'montant')
+        fields = ('id', 'client', 'date', 'termine', 'facture', 'facture_id', 'montant')
 
 
 class CommandeAdminView(ListView):
@@ -134,16 +135,18 @@ class CommandeAdminView(ListView):
 
 
 def Commande_op(request, pk):
-
     commande = Commande.objects.get(pk=pk)
 
-    f = Facture(client=commande.client,date=commande.date)
+    f = Facture(client=commande.client, date=commande.date)
     f.save()
 
     for i in LigneCommande.objects.filter(commande_id=pk):
-        y = LigneFacture(facture=f,qte=i.qte,produit=i.produit)
+        y = LigneFacture(facture=f, qte=i.qte, produit=i.produit)
         y.save()
     commande.facture = f
     commande.save()
+
+    email = EmailMessage('Commande', 'Vontre commande a été validé par l admin', to=[request.user.email])
+    email.send()
 
     return HttpResponseRedirect("/")

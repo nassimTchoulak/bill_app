@@ -151,3 +151,10 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'esitofind@esi.dz'
+EMAIL_HOST_PASSWORD = 'pkfaklcrcwynkmkh'
+EMAIL_PORT = 587

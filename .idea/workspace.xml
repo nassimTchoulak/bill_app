@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a68a3db-36fb-4c9f-a144-d40ce758eab4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bill/media/back.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bill/root/back.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bill/all_views/factureviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/factureviews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/all_views/ligne_facture_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/ligne_facture_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/all_views/mainview.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/all_views/mainview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/admin_top_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/templates/bill/base_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/base_admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/templates/bill/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/templates/bill/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/bill/templates/bill/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bill/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bill/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
